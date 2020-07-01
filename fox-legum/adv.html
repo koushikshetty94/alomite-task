@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="background-color: #02224d;">
+    <div class="container p-5">
+      <!-- form user info -->
+      <div class="card card-outline-secondary">
+        <div class="card-header">
+          <h3 class="mb-0 text-center">Application Form for Advocates</h3>
+        </div>
+        <div class="card-body">
+          <form autocomplete="off" class="form" role="form">
+            <div class="form-group row">
+              <label
+                id="fname"
+                class="col-lg-3 col-form-label form-control-label"
+                >First name</label
+              >
+              <div class="col-lg-9">
+                <input
+                  class="form-control"
+                  type="text"
+                  value=""
+                  placeholder="Enter your First Name"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                id="lname"
+                class="col-lg-3 col-form-label form-control-label"
+                >Last name</label
+              >
+              <div class="col-lg-9">
+                <input
+                  class="form-control"
+                  type="text"
+                  value=""
+                  placeholder="Enter your Last Name"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                id="email"
+                class="col-lg-3 col-form-label form-control-label"
+                >Email</label
+              >
+              <div class="col-lg-9">
+                <input
+                  class="form-control"
+                  type="email"
+                  value=""
+                  placeholder="Enter your Email"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label id="dob" class="col-lg-3 col-form-label form-control-label"
+                >DOB</label
+              >
+              <div class="col-lg-9">
+                <input class="form-control" type="date" value="" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label name="gender" class="col-lg-3">Gender</label>
+              <div class="col-lg-3">
+                <input
+                  class=""
+                  type="radio"
+                  value="Male"
+                  checked=""
+                  name="Gender"
+                />
+                <label class="">Male</label>
+              </div>
+              <div class="col-lg-3">
+                <input
+                  class=""
+                  type="radio"
+                  value="Female"
+                  checked=""
+                  name="Gender"
+                />
+                <label class="">Female</label>
+              </div>
+              <div class="col-lg-3">
+                <input
+                  class=""
+                  type="radio"
+                  value="Other"
+                  checked=""
+                  name="Gender"
+                />
+                <label class="">Other</label>
+              </div>
+            </div>
+            <div class="form-group row address">
+              <label class="col-lg-3 col-form-label form-control-label"
+                >Address</label
+              >
+              <div class="col-lg-9">
+                <input
+                  class="form-control mb-3"
+                  placeholder="Address Line 1"
+                  type="text"
+                  value=""
+                />
+              </div>
+
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input
+                  class="form-control mb-3"
+                  type="text"
+                  placeholder="Address Line 2"
+                  value=""
+                />
+              </div>
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input
+                  class="form-control mb-3"
+                  type="text"
+                  placeholder="Lane"
+                  value=""
+                />
+              </div>
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input
+                  class="form-control mb-3"
+                  type="text"
+                  placeholder="Landmark"
+                  value=""
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label
+                id="pincode"
+                class="col-lg-3 col-form-label form-control-label"
+                >Pincode</label
+              >
+              <div class="col-lg-3">
+                <input
+                  class="form-control"
+                  type="number"
+                  pattern="[0-9]{6}"
+                  maxlength="6"
+                  placeholder="Enter pincode"
+                  value=""
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label
+                id="primaryPhoneNumber"
+                class="col-lg-3 col-form-label form-control-label"
+                >Phone Number</label
+              >
+              <div class="col-lg-3">
+                <input
+                  class="form-control"
+                  type="number"
+                  value=""
+                  placeholder="Enter your phone no."
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label
+                id="alternatePhoneNumber"
+                class="col-lg-3 col-form-label form-control-label"
+                >Alternate Phone Number</label
+              >
+              <div class="col-lg-3">
+                <input
+                  class="form-control"
+                  type="number"
+                  value=""
+                  placeholder="Enter your phone no."
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                id="enrollNumber"
+                class="col-lg-3 col-form-label form-control-label"
+                >Enrollment Number</label
+              >
+              <div class="col-lg-3">
+                <input
+                  class="form-control"
+                  type="number"
+                  value=""
+                  placeholder="Enter your phone no."
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">
+                Specialized Practitions
+              </label>
+              <div class="col-lg-9">
+                <select
+                  class="form-control"
+                  id="specializedPractition"
+                  id="specializedPractition"
+                  required
+                >
+                  <option disabled selected value>
+                    -- Select your specialized practition --
+                  </option>
+                  <option value="Criminal">Criminal</option>
+                  <option value="Civil">Civil</option>
+                  <option value="Property Dispute">Property Dispute</option>
+                  <option value="Divorce & Alimony">Divorce & Alimony</option>
+                  <option value="Muslim Law">Muslim Law</option>
+                  <option value="Motor Accident">Motor Accident</option>
+                  <option value="Insurance Law">Insurance Law</option>
+                  <option value="Customs & Central Excise"
+                    >Customs & Central Excise</option
+                  >
+                  <option value="Child Custody">Child Custody</option>
+                  <option value="Muslim Law">Muslim Law</option>
+                  <option value="Medical Malpractice"
+                    >Medical Malpractice</option
+                  >
+                  <option value="Immigration">Immigration</option>
+                  <option value="Trademark & Copyright "
+                    >Trademark & Copyright
+                  </option>
+                  <option value="Corporate Law">Corporate Law</option>
+                  <option value="Landlord/Tenant">Landlord/Tenant</option>
+                  <option value="Family Dispute">Family Dispute</option>
+                  <option value="Consumer Grievances"
+                    >Consumer Grievances</option
+                  >
+                  <option value="Taxation">Taxation</option>
+                  <option value="International Laws">International Laws</option>
+                  <option value="Documentation">Documentation</option>
+                  <option value="Cheque Bounce">Cheque Bounce</option>
+                  <option value="R.T.I">R.T.I</option>
+                  <option value="Startup">Startup</option>
+                  <option value="Cyber Crime">Cyber Crime</option>
+                  <option value="Arbitration & Conciliation"
+                    >Arbitration & Conciliation</option
+                  >
+                  <option value="Labour & Service">Labour & Service</option>
+                  <option value="Recovery">Recovery</option>
+                  <option value="Wills/Trusts">Wills/Trusts</option>
+                  <option value="Armed Forces Tribunal"
+                    >Armed Forces Tribunal</option
+                  >
+                  <option value="Patent ">Patent </option>
+                  <option value="Banking">Banking</option>
+                  <option value="Contract">Contract</option>
+                  <option value="Women's Protection">Women's Protection</option>
+                  <option value="Revenue">Revenue</option>
+                  <option value="Intellectual property"
+                    >Intellectual property</option
+                  >
+                  <option value="Financial">Financial</option>
+                  <option value="Matrimonial">Matrimonial</option>
+                  <option value="Others">Others</option>
+                </select>
+                <div class="form-group row none otherSel">
+                  <div class="col-lg-9">
+                    <input
+                      class="form-control"
+                      type="text"
+                      value=" "
+                      placeholder="Enter your Specialized Practitions here"
+                    />
+                  </div>
+                </div>
+                <input class="add_select" value="add" type="button" /><span
+                  class="select_append"
+                ></span>
+                <style>
+                  .add_select {
+                    background-color: white;
+                    outline: none;
+                    box-shadow: none;
+                  }
+                  .selected:hover {
+                    text-decoration: line-through;
+                  }
+                  .none {
+                    display: none;
+                  }
+                </style>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label
+                id="practicingCourt"
+                class="col-lg-3 col-form-label form-control-label"
+                >Practising court</label
+              >
+              <div class="col-lg-9">
+                <input
+                  class="form-control"
+                  type="text"
+                  value=""
+                  placeholder="Enter practising court"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-3">
+                <input
+                  class="btn btn-md btn-success"
+                  type="submit"
+                  id="submitAdvData"
+                  value="Submit"
+                /><br>
+                <span class="submit_final"></span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /form user info -->
+    </div>
+  </body>
+  <script src="advocate.js"></script>
+</html>

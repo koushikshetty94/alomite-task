@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+  <link rel="stylesheet"
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+    crossorigin="anonymous" />
+  <title>Hello, advocates!</title>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #02224d;
+    } 
+#formDiv{
+  margin: 0 auto;
+}
+    @media screen and (min-device-width: 600px) {
+      #formDiv {
+        width: 750px !important;
+        margin: 0 auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="text-center text-primary">Application form for advocates</h1>
+  <div class="">
+    <div id="formDiv" style="
+          float: left;
+          text-align: center;
+          box-shadow: 5px 10px 10px 5px lightslategrey;
+          border-radius: 10px;
+          background-color: white;
+        " class="container">
+      <form id="advForm">
+        <br />
+        <div class="form-group">
+          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email ID" required />
+        </div>
+        <div class="form-group">
+          <label for="dob" style="font-size: 18px;"><b>Date of birth</b></label>
+          <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of birth" required />
+        </div>
+        <div class="form-check">
+          <label><b>Select Your gender</b></label><br />
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="male" value="male" required />
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="female" value="female" required />
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="other" value="other" required />
+            <label class="form-check-label" for="other">other</label>
+          </div>
+        </div>
+        <br />
+        <!-- <p>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-toggle="collapse"
+              data-target="#addresscollapse"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              Click to enter address
+            </button>
+          </p> -->
+        <!-- <div class="collapse" name="addresscollapse" id="addresscollapse">
+            <div class="card card-body"> -->
+        <div class="form-check" style="border: 2px solid black;">
+          <label>
+            <h6>Enter Your Address</h6>
+          </label>
+          <br />
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="address" id="home" value="home" required />
+            <label class="form-check-label" for="home">Home</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="address" id="residential" value="residential" required />
+            <label class="form-check-label" for="residential">Residential</label>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="houseName" name="houseName" placeholder="House name" required />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="addressLine1" name="addressLine1" placeholder="Address line 1"
+              required />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="lane" name="lane" placeholder="Lane" required />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="landmark" name="landmark" placeholder="Landmark" required />
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="pinCode" name="pinCode" placeholder="Pincode" required
+              min="1" />
+          </div>
+        </div>
+        <br />
+        <!-- </div>
+          </div> -->
+
+        <div class="form-group">
+          <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone number"
+            required min="1" />
+        </div>
+        <div class="form-group">
+          <input type="number" class="form-control" id="alternatePhoneNumber" name="alternatePhoneNumber"
+            placeholder="Alternate phone number" required min="1" />
+        </div>
+        <div class="form-group">
+          <input type="number" class="form-control" id="enrollmentNumber" name="enrollmentNumber"
+            placeholder="Enrollment number" min="1" required />
+        </div>
+        <div class="form-group">
+          <label for="specializedPractition">Specialized practition</label>
+          <select class="form-control" id="specializedPractition" name="specializedPractition" required>
+            <option disabled selected value>
+              -- Select your specialized practition --
+            </option>
+            <option value="Criminal">Criminal</option>
+            <option value="Civil">Civil</option>
+            <option value="Property Dispute">Property Dispute</option>
+            <option value="Divorce & Alimony">Divorce & Alimony</option>
+            <option value="Muslim Law">Muslim Law</option>
+            <option value="Motor Accident">Motor Accident</option>
+            <option value="Insurance Law">Insurance Law</option>
+            <option value="Customs & Central Excise">Customs & Central Excise</option>
+            <option value="Child Custody">Child Custody</option>
+            <option value="Muslim Law">Muslim Law</option>
+            <option value="Medical Malpractice">Medical Malpractice</option>
+            <option value="Immigration">Immigration</option>
+            <option value="Trademark & Copyright ">Trademark & Copyright
+            </option>
+            <option value="Corporate Law">Corporate Law</option>
+            <option value="Landlord/Tenant">Landlord/Tenant</option>
+            <option value="Family Dispute">Family Dispute</option>
+            <option value="Consumer Grievances">Consumer Grievances</option>
+            <option value="Taxation">Taxation</option>
+            <option value="International Laws">International Laws</option>
+            <option value="Documentation">Documentation</option>
+            <option value="Cheque Bounce">Cheque Bounce</option>
+            <option value="R.T.I">R.T.I</option>
+            <option value="Startup">Startup</option>
+            <option value="Cyber Crime">Cyber Crime</option>
+            <option value="Arbitration & Conciliation">Arbitration & Conciliation</option>
+            <option value="Labour & Service">Labour & Service</option>
+            <option value="Recovery">Recovery</option>
+            <option value="Wills/Trusts">Wills/Trusts</option>
+            <option value="Armed Forces Tribunal">Armed Forces Tribunal</option>
+            <option value="Patent ">Patent </option>
+            <option value="Banking">Banking</option>
+            <option value="Contract">Contract</option>
+            <option value="Women's Protection">Women's Protection</option>
+            <option value="Revenue">Revenue</option>
+            <option value="Intellectual property">Intellectual property</option>
+            <option value="Financial">Financial</option>
+            <option value="Matrimonial">Matrimonial</option>
+          </select>
+        </div>
+        <button type="button" id="others" class="btn btn-primary" onclick="oPractitions()">
+          Click to add other specialized practitions
+        </button>
+        <div class="form-group" id="otherPractitions" style="display: none;">
+          <input type="text" class="form-control" id="otherPractition" name="otherPractition"
+            placeholder="Enter other practitions" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="courtOfPractition" name="courtOfPractition"
+            placeholder="Practicing Courts" required />
+        </div>
+        <!-- <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="terms"
+              name="terms"
+              value="checked"
+              required
+            />
+            <label class="form-check-label" for="terms"
+              >I'll accept the terms</label
+            >
+            <br />
+          </div> -->
+
+        <button type="submit" class="btn btn-info" style="background-color: #0000ff; color: white;">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function oPractitions() {
+      document.getElementById("otherPractitions").style.display = "block";
+    }
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpwpjwf8rO-r8SqMRy98gKs-jOSmiTYmU",
+      authDomain: "advocate-alomite.firebaseapp.com",
+      databaseURL: "https://advocate-alomite.firebaseio.com",
+      projectId: "advocate-alomite",
+      storageBucket: "advocate-alomite.appspot.com",
+      messagingSenderId: "309525539738",
+      appId: "1:309525539738:web:69f14f7765665d1cfda823",
+      measurementId: "G-B2L69202WG",
+    };
+    const phoneval = /^[6-9]\d{9}$/;
+    const pcval = /^[1-9][0-9]{5}$/;
+    const enrollval = /^[0-9]{1,6}$/;
+    const emailval = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    // db.collection("advocates")
+    //   .get()
+    //   .then(snapshot => {
+    //     snapshot.docs.forEach(doc => {
+    //       console.log(doc.data());
+    //     });
+    //   });
+    const form = document.querySelector("#advForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (
+        form.firstName.value == "" ||
+        form.lastName.value == "" ||
+        emailval.test(form.email.value == false) ||
+        form.email.value == "" ||
+        form.dob.value == "" ||
+        form.gender.value == "" ||
+        form.address.value == "" ||
+        form.houseName.value == "" ||
+        form.addressLine1.value == "" ||
+        form.lane.value == "" ||
+        form.landmark.value == "" ||
+        form.pinCode.value == "" ||
+        pcval.test(form.pinCode.value == false) ||
+        form.phoneNumber.value == "" ||
+        phoneval.test(form.phoneNumber.value == false) ||
+        form.alternatePhoneNumber.value == "" ||
+        phoneval.test(form.alternatePhoneNumber.value == false) ||
+        form.enrollmentNumber.value == "" ||
+        enrollval.test(form.enrollmentNumber.value == false) ||
+        form.specializedPractition.value == "" ||
+        form.courtOfPractition.value == ""
+      ) {
+        alert("All fields must be filled out properly!!!");
+        return false;
+      } else {
+        db.collection("advocates").add({
+          firstName: form.firstName.value,
+          lastName: form.lastName.value,
+          email: form.email.value,
+          dob: form.dob.value,
+          gender: form.gender.value,
+          address: {
+            type: form.address.value,
+            houseName: form.houseName.value,
+            addressLine1: form.addressLine1.value,
+            lane: form.lane.value,
+            landmark: form.landmark.value,
+            pinCode: form.pinCode.value,
+          },
+          phoneNumber: form.phoneNumber.value,
+          alternatephoneNumber: form.alternatePhoneNumber.value,
+          enrollmentNumber: form.enrollmentNumber.value,
+          specializedPractition: form.specializedPractition.value,
+          courtOfPractition: form.courtOfPractition.value,
+          otherPractition: form.otherPractition.value,
+        });
+        form.firstName.value = "";
+        form.lastName.value = "";
+        form.email.value = "";
+        form.dob.value = "";
+        form.gender.checked = false;
+        form.address.checked = false;
+        form.houseName.value = "";
+        form.addressLine1.value = "";
+        form.lane.value = "";
+        form.landmark.value = "";
+        form.pinCode.value = "";
+        form.phoneNumber.value = "";
+        form.alternatePhoneNumber.value = "";
+        form.enrollmentNumber.value = "";
+        form.specializedPractition.value = "";
+        form.courtOfPractition.value = "";
+        form.otherPractition.value = "";
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $("body").bootstrapMaterialDesign();
+    });
+  </script>
+</body>
+
+</html>
